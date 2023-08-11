@@ -1,5 +1,5 @@
 # Payment-gateway-spring
-Payment gateway with Html, Css, Js and Springboot
+This is a payment gateway made in spring with a basic html and css backend simulating an electronic component sales company.
 
 # How to start the proyect
 1. Create database in mysql.
