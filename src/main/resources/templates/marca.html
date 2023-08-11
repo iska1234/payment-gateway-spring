@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>EC2</title>
+</head>
+<body>
+    <!-- Nav repetido -->
+    <div class="bg">
+        <div class="nav">
+            <a th:href="@{/inicio}"><img src="images/store.png" style="width: 70px;"></a>
+            <ul>
+                <li><a th:href="@{/inicio}">Inicio</a></li>
+                <li><a th:href="@{/listar}">Productos</a></li>
+                <li><a th:href="@{/marca}">Marcas</a></li>
+                <li><a th:href="@{/seguimiento}">Seguimiento</a></li>
+                <li><a th:href="@{/micuenta}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    </a></li>
+                <li><a th:href="@{/carritocompras}">  <!--a href="/carrito-de-compras"-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="titulomarcas">
+        <h1>Las <span style="color: rgb(39, 90, 191)">mejores</span> marcas del mercado </h1>
+    </div>
+    
+    <div class="container" style="margin: 200px auto">
+        <div class="row">
+            <div class="col" style="background-color: white; text-align:center; border-radius: 30px
+            ; margin: 30px; box-shadow: 0px 5px 20px rgba(200, 200, 200, 0.587);">
+                <img src="/images/acerlogo.png" alt="AcerLogo">
+            </div>
+            <div class="col" style="background-color: white; text-align:center; border-radius: 30px
+            ; margin: 30px; box-shadow: 0px 5px 20px rgba(200, 200, 200, 0.587); display:flex; align-items: center;">
+                <img src="/images/asuslogo.png" alt="AsusLogo" style="width: 288px; transform: translateX(10%);
+                ">
+            </div>
+            <div class="col" style="background-color: white; text-align:center; border-radius: 30px
+            ; margin: 30px; box-shadow: 0px 5px 20px rgba(200, 200, 200, 0.587);">
+                <img src="/images/msilogo.jpg" alt="AcerLogo" style="width: 288px; margin-top: 7px">
+            </div>
+            <div class="col" style="background-color: white; text-align:center; border-radius: 30px
+            ; margin: 30px; box-shadow: 0px 5px 20px rgba(200, 200, 200, 0.587);">
+                <img src="/images/hplogo.png" alt="AcerLogo" style="width: 288px; margin-top: 7px;">
+            </div>
+            <div class="col" style="background-color: white; text-align:center; border-radius: 30px
+            ; margin: 30px; box-shadow: 0px 5px 20px rgba(200, 200, 200, 0.587);">
+                <img src="/images/lenovologo.png" alt="AcerLogo">
+            </div>
+            <div class="col" style="background-color: white; text-align:center; border-radius: 30px
+            ; margin: 30px; box-shadow: 0px 5px 20px rgba(200, 200, 200, 0.587); display:flex; align-items: center;">
+                <img src="/images/razerlogo.png" alt="AsusLogo" style="width: 288px; transform: translateX(15%); margin-top: 12px;">
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+	<div class="container" style="background-color: white">
+        <form class="form" id="login">
+            <img src="/logo.jpg" alt="Logo Memory Kings" style="width: 400px; margin: auto;">
+            <h1 class="form__title" style="text-align: left; color: rgb(11, 180, 93); font-weight: 200px;">Inicio de sesión</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" autofocus placeholder="Email">
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <input type="password" class="form__input" autofocus placeholder="Contraseña">
+                <div class="form__input-error-message"></div>
+            </div>
+            <button class="form__button" type="submit">Ingresar</button>
+            <p class="form__text">
+                <a href="#" class="form__link">¿Te olvidaste tu contraseña?</a>
+            </p>
+            <p class="form__text">
+                <a class="form__link" href="http://localhost:8080/formulario" id="linkCreateAccount">¿No tienes cuenta? Crea una cuenta</a>
+            </p>
+        </form>
+   </div>
+</body>
+</html>

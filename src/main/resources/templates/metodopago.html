@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+     <link rel="stylesheet" type="text/css" th:href="@{/general/sweetalert2/dist/sweetalert2.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Métodos de pago</title>
+</head>
+<body>
+    <!-- Nav repetido -->
+    <div class="bg">
+        <div class="nav">
+            <a th:href="@{/inicio}"><img src="images/store.png" style="width: 70px;"></a>
+            <ul>
+                <li><a th:href="@{/inicio}">Inicio</a></li>
+                <li><a th:href="@{/listar}">Productos</a></li>
+                <li><a th:href="@{/marca}">Marcas</a></li>
+                <li><a th:href="@{/seguimiento}">Seguimiento</a></li>
+                <li><a th:href="@{/micuenta}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    </a></li>
+                <li><a th:href="@{/carritocompras}">  <!--a href="/carrito-de-compras"-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- METODO DE PAGO -->
+
+    <div class="container">
+
+        <div class="row">
+
+          <div class="col-9">
+            <section class="cuadro-grande" style="margin-right: 10px">
+              <h2>Elegir método de pago</h2>
+
+              <!-- ELEGIR METODO DE PAGO -->
+              <div class="borde-coloreado" style="padding: 0px">
+                
+                  <!-- METODOS DE PAGOS -->
+                <div class="metodos-selecciones">
+                    <div class="cuadro-opcion" id="tarjeta-creditodebito">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
+                            <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
+                          </svg>
+                        <p style="margin-bottom: 0px">Tarjeta de crédito o débito</p>
+                    </div>
+
+                    <div class="cuadro-opcion" id="pagoefectivo">
+                        <img src="/images/pagoefectivo.png" style="width: 45px" alt="pagoefectivo-logo">
+                        <p style="margin-bottom: 0px">Pago efectivo</p>
+                    </div>
+
+                    <div class="cuadro-opcion" id="yape">
+                        <img src="/images/yapelogo.png" style="width: 45px" alt="pagoefectivo-logo">
+                        <p style="margin-bottom: 0px">Yape</p>
+                    </div>
+
+                    <div class="cuadro-opcion" id="plin">
+                        <img src="/images/plinlogo.png" style="width: 58px" alt="pagoefectivo-logo">
+                        <p style="margin-bottom: 0px">Plin</p>
+                    </div>
+
+                </div>
+
+                  <!-------------------------->
+
+                <!-- metodo-tarjeta para saber que es el metodo tarjeta -->
+
+                <div class="cuadrometodos-detalles" id="tarjeta-info">
+                    <form id="metodo-tarjeta-form">
+                    <table>
+                        <tr>
+                            <th>DNI del Titular</th>
+                            <th>Nombre del Titular</th>
+                            <th>Número de tarjeta</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="dni_titular"></td>
+                            <td><input type="text" id="nombre_titular"></td>
+                            <td><input type="text" id="numero_tarjeta" maxlength="16"></td> 
+                                
+                        </tr>
+                        <tr>
+                            <th>Mes de expiración</th>
+                            <th>Año de expiración</th>
+                            <th>CVV</th>
+                        </tr>
+                        <tr>
+                            <td><select id="mes-exp">
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="1">2</option>
+                                <option value="1">3</option>
+                                <option value="1">4</option>
+                                <option value="1">5</option>
+                                <option value="1">6</option>
+                                <option value="1">7</option>
+                                <option value="1">8</option>
+                                <option value="1">9</option>
+                                <option value="1">10</option>
+                                <option value="1">11</option>
+                                <option value="1">12</option>
+                            </select></td>
+                            <td><select id="año-exp">
+                                <option value=""></option>
+                                <option value="1">2022</option>
+                                <option value="1">2023</option>
+                                <option value="1">2024</option>
+                                <option value="1">2025</option>
+                                <option value="1">2027</option>
+                                <option value="1">2028</option>
+                                <option value="1">2029</option>
+                                <option value="1">2030</option>
+                                <option value="1">2031</option>
+                                <option value="1">2032</option>
+                            </select></td>
+                            <td><input type="text" maxlength="3"></td>
+                        </tr>
+                    </table>
+                    </form>
+                    <div class="boton-basico" style="text-align:center; margin: 20px auto;  width: 40%;">
+                        <a href="javascript:ConfirmacionTarjeta();" style="text-decoration: none; color: white"><b>Procesar Pago</b></a>
+                      </div>
+                </div>
+                
+                <!---------------------->
+
+                <div class="cuadrometodos-detalles" id="pagoefectivo-procesar">
+
+                    <div class="boton-basico" style="text-align:center; margin: 20px auto;  width: 40%; color: black; background-color: rgb(245, 198, 45);">
+                        <a href="javascript:ConfirmacionEfectivo();" style="text-decoration: none; color: black"><b>Finalizar compra</b></a>
+                    </div>
+                </div>
+
+                <div class="cuadrometodos-detalles" id="yape-procesar">
+
+                    <div class="boton-basico" style="text-align:center; margin: 20px auto;  width: 40%; background-color: rgb(154, 29, 185);">
+                        <a href="javascript:ConfirmacionYape();" style="text-decoration: none; color: white"><b>Finalizar compra</b></a>
+                    </div>
+                </div>
+
+                <div class="cuadrometodos-detalles" id="plin-procesar">
+
+                        <div class="boton-basico" style="text-align:center; margin: 20px auto; width: 40%; background-color: rgb(60, 212, 223);">
+                        <a href="javascript:ConfirmacionPlin();" style="text-decoration: none; color: white"><b>Finalizar compra</b></a>
+                        </div>
+                    </div>
+
+              </div>
+          </section>   
+          </div>
+          
+
+          <!-- CODIGO RESUMEN PEDIDO -->
+          <div class="col">
+            <section class="cuadro-grande">
+              <h4 style="border-bottom: 1px solid rgb(49, 96, 178); padding-bottom: 15px">Resumen pedido</h4>
+              
+              <div style="font-size: 20px; display: flex; justify-content:space-between; margin-top: 20px; align-items: center;">
+                <p style="display: inline-block; margin: 5px 0px;"><b>TOTAL:</b></p>
+                <p style="display: inline-block; margin: 5px 0px;"><b th:text="${totales}">S/00.00</b></p>
+              </div>
+
+            </section>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/jquery-3.6.0.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/general/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="/custom/sweetalert2/init.js"></script>
+
+</body>
+</html>
+
+<script>
+function ConfirmacionTarjeta(){
+    
+    var codpago=1;
+    var dni_titular=dni_receptor=$('#dni_titular').val();
+    var nombre_titular=dni_receptor=$('#nombre_titular').val();
+    var numero_tarjeta=dni_receptor=$('#numero_tarjeta').val();
+    
+    
+    swal({
+        title: 'Deseas pagar con Tarjeta?',
+        text: "",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, Pagar!',
+
+    }).then(function (result) {
+        if (result.value == true) {
+            //$('#progress').show();
+            
+            
+            $.getJSON("/registrarventa/"+codpago+"/"+dni_titular+"/"+nombre_titular+"/"+numero_tarjeta, function(result){
+				            swal(
+                            'Registrado!',
+                            'la Venta ha sido registrada.',
+                            'success'
+                        )
+ 			   	window.location.href="/confirmacion";
+  			});
+  			//
+        }
+    });
+
+	
+}
+
+function ConfirmacionEfectivo(){
+    
+    var codpago=2;
+    var dni_titular='';
+    var nombre_titular='';
+    var numero_tarjeta='';
+    
+    
+    swal({
+        title: 'Deseas pagar con PagoEfectivo?',
+        text: "",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, Pagar!',
+
+    }).then(function (result) {
+        if (result.value == true) {
+            //$('#progress').show();
+            
+            $.getJSON("/registrarventa/"+codpago+"/"+dni_titular+"/"+nombre_titular+"/"+numero_tarjeta, function(result){
+				            swal(
+                            'Registrado!',
+                            'la Venta ha sido registrada.',
+                            'success'
+                        )
+    			window.location.href="/confirmacion";
+  			});
+  			//
+        }
+    });
+
+	
+}
+
+function ConfirmacionYape(){
+    
+    var codpago=3;
+    var dni_titular='';
+    var nombre_titular='';
+    var numero_tarjeta='';
+    
+    
+    swal({
+        title: 'Deseas pagar con Yape?',
+        text: "",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, Pagar!',
+
+    }).then(function (result) {
+        if (result.value == true) {
+            //$('#progress').show();
+            
+            $.getJSON("/registrarventa/"+codpago+"/"+dni_titular+"/"+nombre_titular+"/"+numero_tarjeta, function(result){
+				            swal(
+                            'Registrado!',
+                            'la Venta ha sido registrada.',
+                            'success'
+                        )
+    		window.location.href="/confirmacion";
+  			});
+  			//
+        }
+    });
+
+	
+}
+
+function ConfirmacionPlin(){
+    
+    var codpago=3;
+    var dni_titular='';
+    var nombre_titular='';
+    var numero_tarjeta='';
+    
+    
+    swal({
+        title: 'Deseas pagar con Plin?',
+        text: "",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, Pagar!',
+
+    }).then(function (result) {
+        if (result.value == true) {
+            //$('#progress').show();
+            
+            $.getJSON("/registrarventa/"+codpago+"/"+dni_titular+"/"+nombre_titular+"/"+numero_tarjeta, function(result){
+				            swal(
+                            'Registrado!',
+                            'la Venta ha sido registrada.',
+                            'success'
+                        )
+    	window.location.href="/confirmacion";
+  			});
+  			//
+        }
+    });
+
+	
+}
+
+</script>

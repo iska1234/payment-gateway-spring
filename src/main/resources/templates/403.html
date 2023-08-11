@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+<title>Error: 403</title>
+</head>
+<body>
+	<header th:replace="fragments/header :: header"></header>
+	<div class="container">
+		<div class="card text-white bg-danger">
+			<div class="card-header">Error: 403</div>
+			<div class="card-body">
+				<h5 class="card-title">¡Acceso Denegado!</h5>
+				<p class="card-text py-3">
+					Lo sentimos <span sec:authentication="name" class="fw-bold">invitado</span>, no tienes permiso para acceder a esta página :(
+				</p>
+				<a class="btn btn-outline-light" th:href="@{/listar}">Ir a Inicio</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

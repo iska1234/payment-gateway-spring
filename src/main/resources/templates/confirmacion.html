@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Seguimiento de Pedido</title>
+</head>
+<body>
+    
+    <!-- Nav repetido -->
+    <div class="bg">
+        <div class="nav">
+            <a href="@{/inicio}"><img src="images/store.png" style="width: 70px;"></a>
+            <ul>
+                <li><a th:href="@{/inicio}">Inicio</a></li>
+                <li><a th:href="@{/listar}">Productos</a></li>
+                <li><a th:href="@{/marca}">Marcas</a></li>
+                <li><a th:href="@{/seguimiento}">Seguimiento</a></li>
+                <li><a th:href="@{/micuenta}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    </a></li>
+                <li><a href="@{/carritocompras}">  <!--a href="/carrito-de-compras"-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Confirmación -->
+
+    <div class="mensaje">
+        <h1 style="color: rgb(114, 209, 114)"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+          </svg></h1>
+        <p style="font-weight:700; font-size: 30px; color: rgb(61, 68, 167);">Pedido confirmado</p>
+        <p style="font-size: 20px; color: rgba(130, 144, 212, 0.582);">Codigo de seguimiento: 00000000</p>
+        <a class="Aboton" th:href="@{/micuenta}" style="text-decoration: none;"><button class="boton">Ir a Mi cuenta</button></a>
+    </div>
+
+    <script src="/js/jquery-3.6.0.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

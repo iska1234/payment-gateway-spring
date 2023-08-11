@@ -1,0 +1,165 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.bg{
+    background-image: url(/images/chuck-fortner-LFVBohYmtgc-unsplash.jpg);
+    background-color: rgb(97, 65, 69);
+    background-blend-mode: overlay;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Nav */ 
+.nav{
+    width: 65%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav ul {
+    margin-top: auto; /*Para quitar el margin-top de bootstrap*/
+}
+
+.nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0px 30px;
+}
+
+.nav h2 {
+    color: white;
+}
+.nav ul li a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.nav ul li a:hover{
+    color: rgb(96, 161, 244);
+}
+
+/* Inicio centro*/
+
+.parteprincipal{
+    width: 100%;
+    color: white;
+    position: absolute;
+    top: 42%;
+    text-align: center;
+}
+
+.parteprincipal h1{
+    font-size: 70px;
+}
+
+.parteprincipal p{
+    font-size: 20px;
+    margin: 30px 0;
+}
+/* Inicio Titulo */
+.iniciotitulo{
+    font-size: 40px;
+    text-align: center;
+    position: relative;
+    top: 100px;
+}
+
+
+/* Seccion Inicio */
+.caja{
+    display: flex;
+    align-items: center;
+    margin: 150px 230px;
+    padding: 50px;
+    justify-content: space-around;
+    
+}
+.caja .cajas{
+    padding: 40px;
+    border-radius: 50px;
+    height: 410px;
+    width: 400px;
+    box-shadow: 0 4px 20px 0 rgb(0 0 0 / 10%);
+}
+
+/*Inicio Presupuesto */
+
+#presupuesto{
+    background-color: rgba(219, 223, 255, 0.276);
+    margin-top: 100px;
+    padding: 60px 120px;
+}
+
+.iniciopresupuesto{
+    text-align: center;
+    font-size: 40px;
+    width: 50%;
+    margin: auto;
+}
+
+select{
+    width: 25%;
+    font-size: 21px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border-width: 2px;
+}
+
+.boton{
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 0px;
+    padding: 10px 28px;
+    background-color: rgb(204, 207, 248);
+    transition: background-color 0.5s;
+}
+
+.boton:hover{
+    background-color: rgb(224, 227, 255);
+}
+
+/* Presupuesto */
+
+#suscripcion{
+    box-shadow: 0 4px 20px 0 rgb(0 0 0 / 10%);
+    padding: 40px;
+    margin: 200px 25vw;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.iniciosuscripcion{
+    font-size: 43px;
+    padding: 50px;
+}
+
+.inputcliente{
+    width: 50%;
+    font-size: 21px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border-width: 2px;
+}
+
+.boton2{
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 0px;
+    padding: 10px 28px;
+    background-color: rgb(228, 248, 204);
+    transition: background-color 0.5s;
+}
+
+.boton2:hover{
+    background-color: rgb(243, 254, 230);
+}

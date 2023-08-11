@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index-estilos.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>EC2</title>
+</head>
+<body>
+    <!-- nav un poco diferente-->
+    <div class="bg">
+        <div class="nav" id="navindex">
+            <a th:href="@{/inicio}"><img src="images/store.png" style="width: 70px; filter: invert(1);"></a>
+            <ul>
+                <li><a th:href="@{/inicio}">Inicio</a></li>
+                <li><a th:href="@{/listar}">Productos</a></li>
+                <li><a th:href="@{/marca}">Marcas</a></li>
+                <li><a th:href="@{/seguimiento}">Seguimiento</a></li>
+                <li><a th:href="@{/micuenta}"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg></a></li>
+                <li><a th:href="@{/carritocompras}"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg></a></li>
+
+            </ul>
+        </div>
+        <section class="parteprincipal">
+            <h1>TECH TIENDA</h1>
+            <p>Los mejores equipos los encontrarás aquí al mejor precio del mercado</p>
+        </section>
+    </div>
+
+    <section id="inicio">
+    <div class="iniciotitulo">¿Qué nos hace una <span style="color: rgb(183, 43, 226); font-weight: bold">buena </span>tienda?</div>
+    <div class="caja">
+                <div class="cajas">
+                    <img src="/images/caja.png" style="width: 210px; display: block; margin: auto; padding: 20px;">
+                    <div style="font-size: 28px; text-align: center; padding: 10px;">Servicio de Delivery 
+                        <span style="color: rgb(23, 23, 225); font-weight: bold;">Rápido</span></div>    
+                </div>
+                <div class="cajas">
+                    <img src="/images/discount.png" style="width: 210px; display: block; margin: auto; padding: 20px;">
+                    <div style="font-size: 28px; text-align: center; padding: 10px;">
+                        <span style="color:rgb(23, 23, 225); font-weight: bold;">Excelentes</span> Precios</div>  
+                </div>
+                <div class="cajas">
+                    <img src="images/warranty.png" style="width: 210px; display: block; margin: auto; padding: 20px;">
+                    <div style="font-size: 28px; text-align: center; padding: 10px;">
+                        <span style="color:rgb(23, 23, 225); font-weight: bold;">Garantía</span> en todos<br>los productos</div>  
+                </div>
+    </div>
+    </section>
+
+    <section id="presupuesto">
+        <div class="iniciopresupuesto">
+            ¡Elige la <span style="color: rgba(148, 23, 244, 0.802); font-weight: bold;">categoría</span>
+            y 
+            <span style="color: rgba(23, 156, 244, 0.802); font-weight: bold;">precio</span>
+             para escoger los productos ideales para ti!
+        </div>
+        <div class="calcular">
+            <p style="text-align: center; margin: 50px 0px 30px 0px; font-size: 28px; font-weight: bold; color: rgba(0, 0, 0, 0.802);">Categoría:</p>
+            
+            <form action="" style="text-align: center">
+                <select id="categoria" name="categoria">
+                    <option value = "laptop">Laptops</option>
+                    <option value = "tablet">Tablets</option>
+                    <option value = "monitores">Monitores</option>
+                </select>
+            </form>
+
+            <p style="text-align: center; margin: 50px 0px 30px 0px; font-size: 28px; font-weight: bold; color: rgba(0, 0, 0, 0.802);">Presupuesto:</p>
+
+            <form action="" style="text-align: center">
+                <select id="soles" name="soles">
+                    <option value = "">S/100</option>
+                    <option value = "">S/300</option>
+                    <option value = "">S/500</option>
+                    <option value = "">S/1000</option>
+                    <option value = "">S/2000</option>
+                </select>
+            </form>
+
+            <div style="text-align: center; margin-top: 60px;">
+            <button class="boton" onclick="cambiarTexto();"><span id="botontext">Buscar</span></button>
+            </div>
+        </div> 
+    </section>
+
+    <section id="suscripcion">
+        <div class="iniciosuscripcion">
+            ¡Únete a nuestro <span style="color: rgb(60, 223, 169); font-weight: bold;">newsletter</span>!
+        </div>
+
+        <form action="" style="text-align: center">
+            <p style="font-size: 28px; font-weight:bold; margin: 0px 0px 30px 0px">Nombre:</p>
+            <input type="" id="clientenombre" class="inputcliente" name="">
+        </form>
+
+        <form action="" style="text-align: center">
+            <p style="font-size: 28px; font-weight:bold; margin: 30px 0px 30px 0px">Correo:</p>
+            <input type="" id="clientecorreo" class="inputcliente" name="">
+        </form>
+        <div>
+
+        <div style="margin-top: 60px; margin-bottom: 30px;">
+            <button class="boton2" onclick="registrar();"><span id="">Suscribirse</span></button>
+        </div>
+    </section>
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>
+

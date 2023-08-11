@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+     <link rel="stylesheet" type="text/css" th:href="@{/general/sweetalert2/dist/sweetalert2.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Método de despacho</title>
+</head>
+<body>
+    <!-- Nav repetido -->
+    <div class="bg">
+        <div class="nav">
+            <a th:href="@{/inicio}"><img src="images/store.png" style="width: 70px;"></a>
+            <ul>
+                <li><a th:href="@{/inicio}">Inicio</a></li>
+                <li><a th:href="@{/listar}">Productos</a></li>
+                <li><a th:href="@{/marca}">Marcas</a></li>
+                <li><a th:href="@{/seguimiento}">Seguimiento</a></li>
+                <li><a th:href="@{/micuenta}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    </a></li>
+                <li><a th:href="@{/carritocompras}">  <!--a href="/carrito-de-compras"-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Metodo de despacho -->
+
+    <div class="container">
+
+        <div class="row">
+
+          <div class="col-9">
+            <section class="cuadro-grande" style="margin-right: 10px">
+              <h2>Elegir método de despacho</h2>
+
+              <!-- ELEGIR METODO DE DESPACHO -->
+              <div class="borde-coloreado despachos-caja-general">
+
+                  <!-- METODOS DE DESPACHO-->
+                  <div class="metodos-selecciones">
+                    <div class="cuadro-opcion" id="despacho-delivery">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                          </svg>
+                        <p style="margin-bottom: 0px">Enviar a Domicilio</p>
+                    </div>
+
+                    <div class="cuadro-opcion" id="despacho-recogertienda">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                          </svg>
+                        <p style="margin-bottom: 0px">Recoger en tienda</p>
+                    </div>
+                  </div>
+                  <!-------------------------->
+                
+                <div class="cuadrometodos-detalles" id="datos-enviodomicilio">
+                    <form id="domicilio-form">
+                    <table>
+                        <tr>
+                            <th>Dirección</th>
+                            <th>Distrito</th>
+                        </tr>
+                        <tr>
+                        
+                            <td><input type="text" id="direccion"></td>
+
+                            <td><select id="distrito">
+                                <option value="">---</option>
+                                <option label="CERCADO DE LIMA" value="CERCADO DE LIMA">CERCADO DE LIMA</option>
+                                <option label="ATE" value="ATE">ATE</option>
+                                <option label="BARRANCO" value="BARRANCO">BARRANCO</option>
+                                <option label="CHORRILLOS" value="CHORRILLOS">CHORRILLOS</option>
+                                <option label="CIENEGUILLA" value="CIENEGUILLA">CIENEGUILLA</option>
+                                <option label="COMAS" value="COMAS">COMAS</option>
+                                <option label="EL AGUSTINO" value="EL AGUSTINO">EL AGUSTINO</option>
+                                <option label="INDEPENDENCIA" value="INDEPENDENCIA">INDEPENDENCIA</option>
+                                <option label="JESUS MARIA" value="JESUS MARIA">JESUS MARIA</option>
+                                <option label="LA MOLINA" value="LA MOLINA">LA MOLINA</option>
+                                <option label="LA VICTORIA" value="LA VICTORIA">LA VICTORIA</option>
+                                <option label="LINCE" value="LINCE">LINCE</option>
+                                <option label="LOS OLIVOS" value="LOS OLIVOS">LOS OLIVOS</option>
+                                <option label="LURIN" value="LURIN">LURIN</option>
+                                <option label="MAGDALENA DEL MAR" value="MAGDALENA DEL MAR">MAGDALENA DEL MAR</option>
+                                <option label="PUEBLO LIBRE" value="PUEBLO LIBRE">PUEBLO LIBRE</option>
+                                <option label="MIRAFLORES" value="MIRAFLORES">MIRAFLORES</option>
+                                <option label="RIMAC" value="RIMAC">RIMAC</option>
+                                <option label="SAN BORJA" value="SAN BORJA">SAN BORJA</option>
+                                <option label="SAN ISIDRO" value="SAN ISIDRO">SAN ISIDRO</option>
+                                <option label="SAN JUAN DE LURIGANCHO" value="SAN JUAN DE LURIGANCHO">SAN JUAN DE LURIGANCHO</option>
+                                <option label="SAN JUAN DE MIRAFLORES" value="SAN JUAN DE MIRAFLORES">SAN JUAN DE MIRAFLORES</option>
+                                <option label="SAN LUIS" value="SAN LUIS">SAN LUIS</option>
+                                <option label="SAN MARTIN DE PORRES" value="SAN MARTIN DE PORRES">SAN MARTIN DE PORRES</option>
+                                <option label="SAN MIGUEL" value="SAN MIGUEL">SAN MIGUEL</option>
+                                <option label="SANTA ANITA" value="SANTA ANITA">SANTA ANITA</option>
+                                <option label="SANTIAGO DE SURCO" value="SANTIAGO DE SURCO">SANTIAGO DE SURCO</option>
+                                <option label="SURQUILLO" value="SURQUILLO">SURQUILLO</option>
+                                <option label="VILLA EL SALVADOR" value="VILLA EL SALVADOR">VILLA EL SALVADOR</option>
+                                <option label="VILLA MARIA DEL TRIUNFO" value="VILLA MARIA DEL TRIUNFO">VILLA MARIA DEL TRIUNFO</option>
+                                <option label="ANCON" value="ANCON">ANCON</option>
+                                <option label="CARABAYLLO" value="CARABAYLLO">CARABAYLLO</option>
+                                <option label="CHACLACAYO" value="CHACLACAYO">CHACLACAYO</option>
+                                <option label="PACHACAMAC" value="PACHACAMAC">PACHACAMAC</option>
+                                <option label="PUCUSANA" value="PUCUSANA">PUCUSANA</option>
+                                <option label="PUENTE PIEDRA" value="PUENTE PIEDRA">PUENTE PIEDRA</option>
+                                <option label="PUNTA HERMOSA" value="PUNTA HERMOSA">PUNTA HERMOSA</option>
+                                <option label="PUNTA NEGRA" value="PUNTA NEGRA">PUNTA NEGRA</option>
+                                <option label="SAN BARTOLO" value="SAN BARTOLO">SAN BARTOLO</option>
+                                <option label="SANTA MARIA DEL MAR" value="SANTA MARIA DEL MAR">SANTA MARIA DEL MAR</option>
+                                <option label="SANTA ROSA" value="SANTA ROSA">SANTA ROSA</option>
+                                <option label="CHOSICA (LURIGANCHO)" value="CHOSICA (LURIGANCHO)">CHOSICA (LURIGANCHO)</option>
+                                <option label="BREÑA" value="BREÑA">BREÑA</option></select></td>
+                        </tr>
+                        <tr>
+                            <th>Teléfono Celular</th>
+                            <th>DNI del receptor</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="telefono-celular"></td>                        
+                            <td><input type="text" id="dnireceptor"></td>
+                        </tr>
+                    </table>
+                    </form>
+                    <div class="boton-basico" style="text-align:center; margin: 20px auto;  width: 40%;">
+                        <a href="javascript:AgregarDespacho();" style="text-decoration: none; color: white"><b>Guardar dirección</b></a>
+                      </div>
+                </div>
+                
+                <!---------------------->
+
+                <div class="cuadrometodos-detalles" id="datos-recojotienda">
+                    <form id="recojotienda-form">
+                    <table>
+                        <tr>
+                            <th style="padding: 10px 50px">Tienda de recojo</th>
+                            <th style="padding: 10px 50px">DNI del receptor</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 50px"><select id="tiendarecojo1">
+                                <option value="">---</option>
+                                <option value="Tienda1">Tienda 1</option>
+                                <option value="Tienda1">Tienda 2</option>
+                                <option value="Tienda1">Tienda 3</option>
+                                <option value="Tienda1">Tienda 4</option>
+                            </select></td>
+                            <td style="padding: 10px 50px"><input type="text" id="dnireceptor1"></td>
+                        </tr>
+                    </table>
+                    </form>
+                    <div class="boton-basico" style="text-align:center; margin: 20px auto;  width: 40%;">
+                        <a href="javascript:AgregarRecojo();"  style="text-decoration: none; color: white"><b>Guardar lugar de recojo</b></a>
+                    </div>
+                </div>
+              </div>
+          </section>   
+          </div>
+          
+
+          <!-- CODIGO RESUMEN PEDIDO -->
+          <div class="col">
+            <section class="cuadro-grande">
+              <h4 style="border-bottom: 1px solid rgb(49, 96, 178); padding-bottom: 15px">Resumen pedido</h4>
+              
+              <div style="font-size: 20px; display: flex; justify-content:space-between; margin-top: 20px; align-items: center;">
+                <p style="display: inline-block; margin: 5px 0px;"><b>TOTAL:</b></p>
+                <p style="display: inline-block; margin: 5px 0px;"><b th:text="${totales}">S/00.00</b></p>
+              </div>
+
+            </section>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/jquery-3.6.0.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/general/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="/custom/sweetalert2/init.js"></script>
+
+</body>
+</html>
+<script>
+function AgregarRecojo(){
+    
+    var metododespacho=1;
+    var direccion='';
+    var distrito='';
+    var telefono='';
+    var dni_receptor=$('#dnireceptor1').val();
+    var tienda_recojo=$('#tiendarecojo1').val();
+    
+    
+    swal({
+        title: 'Deseas Agregar el recojo en tienda?',
+        text: "",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, Agregar!',
+
+    }).then(function (result) {
+        if (result.value == true) {
+            //$('#progress').show();
+            
+            
+            $.getJSON("/agregardespacho/"+metododespacho+"/"+direccion+"/"+distrito+"/"+telefono+"/"+dni_receptor+"/"+tienda_recojo, function(result){
+				            swal(
+                            'Agregado!',
+                            'El Articulo fue Agregado.',
+                            'success'
+                        )
+    	
+  			});
+  			window.location.href="/metodopago";
+        }
+    });
+
+	
+}
+
+function AgregarDepacho(){
+    
+    var metododespacho=0;
+    var direccion=$('#direccion').val();
+    var distrito=$('#distrito').val();
+    var telefono=$('#telefono-celular').val();
+    var dni_receptor=$('#dnireceptor').val();
+    var tienda_recojo='';
+    
+    
+    swal({
+        title: 'Deseas Agregar el recojo en tienda?',
+        text: "",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, Agregar!',
+
+    }).then(function (result) {
+        if (result.value == true) {
+            //$('#progress').show();
+            
+            
+            $.getJSON("/agregardespacho/"+metododespacho+"/"+direccion+"/"+distrito+"/"+telefono+"/"+dni_receptor+"/"+tienda_recojo, function(result){
+				            swal(
+                            'Agregado!',
+                            'El Articulo fue Agregado.',
+                            'success'
+                        )
+    	
+  			});
+  			window.location.href="/metodopago";
+        }
+    });
+
+	
+}
+
+
+</script>

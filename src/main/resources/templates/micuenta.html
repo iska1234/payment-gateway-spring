@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Mi cuenta</title>
+</head>
+<body>
+    <!-- Nav repetido -->
+    <div class="bg">
+        <div class="nav">
+            <a th:href="@{/inicio}"><img src="images/store.png" style="width: 70px;"></a>
+            <ul>
+                <li><a th:href="@{/inicio}">Inicio</a></li>
+                <li><a th:href="@{/listar}">Productos</a></li>
+                <li><a th:href="@{/marca}">Marcas</a></li>
+                <li><a th:href="@{/seguimiento}">Seguimiento</a></li>
+                <li><a th:href="@{/micuenta}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    </a></li>
+                <li><a th:href="@{/carritocompras}">  <!--a href="/carrito-de-compras"-->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Mi cuenta -->
+    <div class="container">
+        <div class="row">
+
+          <div class="col-3">
+            <section class="listaopciones">
+            <ul style="list-style: none;">
+                <li><a href="#" class="botonmicuenta">Mi cuenta</a></li>
+                <li><a href="#" class="botonmispedidos">Mis pedidos</a></li>
+            </ul>
+            </section>
+          </div>
+
+          <div class="col" id="micuenta">
+            <section class="cuadro-grande">
+                <h2>Información personal</h2><br>
+                <div>
+                Nombres : <b th:text="${cliente.nombre}">Jorge Enriquez</b><br><br>
+                Apellido : <b th:text="${cliente.apellidos}">00000000</b><br><br>
+                Email : <b th:text="${cliente.email}">A20203361@idat.edu.pe</b>
+                </div>
+            </section>
+          </div>
+
+          <div class="col" id="mispedidos">
+            <section class="cuadro-grande">
+                <h2>Mis pedidos</h2>
+
+                <!-- PEDIDO 1 -->
+                <div class="borde-coloreado" th:each="venta : ${venta2}" >
+
+                    <div class="pedido-titulo">
+                    <p>Pedido No. <span th:text="${venta.id}">00000000</span> &emsp;|&emsp;<b>Total: S/ <span th:text="${venta.calcularTotal}"></span></b></p>
+                    </div>
+                    
+                    <!-- DETALLE DEL PEDIDO 1-->
+
+                    <div class="cuadroproducto-detalle" th:each="ventadet : ${venta.items}" >
+                        <img th:src="${ventadet.producto.ruta}" src="/images/placeholder.jpg" alt="placeholder" class="pedidoimagenproducto">
+                        <div class="producto-detalles">
+                            <p style="flex: 1" th:text="${ventadet.producto.nombre}">Producto detalle detalle detalle detalle detalle detalle</p>
+                            <p>Cantidad: <span th:text="${ventadet.cantidad}"></span>&emsp; | &emsp;<b th:text="${ventadet.producto.precio}">S/00.00</b></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          </div>
+        </div>
+    </div>
+
+    <script src="/js/jquery-3.6.0.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
